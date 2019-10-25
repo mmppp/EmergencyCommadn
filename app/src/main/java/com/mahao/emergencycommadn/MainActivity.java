@@ -5,7 +5,9 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
+    private BottomNavigationView mNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        mNavigation = findViewById(R.id.navigation);
+        //设置下面的tab大于三个的时候文字也会显示
+        mNavigation.setLabelVisibilityMode(1);
     }
 
 }
